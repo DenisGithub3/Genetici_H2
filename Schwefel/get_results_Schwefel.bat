@@ -2,7 +2,7 @@
 setlocal
 
 rem Output file
-set output_file=rezultate_Schwefel30D.txt
+set output_file=rezultate_Schwefel5D.txt
 
 rem Clear the output file if it already exists
 > %output_file% echo Results:

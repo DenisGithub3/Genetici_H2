@@ -4,7 +4,7 @@ from typing import Tuple, List
 
 class BinaryGA:
     def __init__(self, bits_per_param: int = 16,
-                 n_params: int = 30,  # DIMENSIUNI
+                 n_params: int = 5,  # DIMENSIUNI
                  bounds: Tuple[float, float] = (-500, 500)):
         self.bits_per_param = bits_per_param
         self.n_params = n_params
@@ -68,7 +68,7 @@ class BinaryGA:
         bitstrings[mutation_mask] = 1 - bitstrings[mutation_mask]
         return bitstrings
 
-    def run(self, n_iter: int = 10000, r_cross: float = 0.9, r_mut: float = 1.0 / 100) -> Tuple[np.ndarray, float]:
+    def run(self, n_iter: int = 50000, r_cross: float = 0.9, r_mut: float = 1.0 / 100) -> Tuple[np.ndarray, float]:
         """Rulează algoritmul genetic."""
         # Populația inițială
         pop_size = 100

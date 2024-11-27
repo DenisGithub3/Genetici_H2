@@ -1,0 +1,121 @@
+Results:
+Rezultat : 1.2872680742930243
+Timp de rulare: 35.34685468673706 secunde
+
+
+Rezultat : 1.2977828274451895
+Timp de rulare: 33.35773324966431 secunde
+
+
+Rezultat : 1.3968408230339264
+Timp de rulare: 33.14686059951782 secunde
+
+
+Rezultat : 1.2260645794049196
+Timp de rulare: 33.580435276031494 secunde
+
+
+Rezultat : 1.3967225878168392
+Timp de rulare: 34.76466417312622 secunde
+
+
+Rezultat : 0.6502928642221377
+Timp de rulare: 34.625001192092896 secunde
+
+
+Rezultat : 1.2878995663977548
+Timp de rulare: 33.32271122932434 secunde
+
+
+Rezultat : 2.0349388301292493
+Timp de rulare: 35.076756954193115 secunde
+
+
+Rezultat : 1.716220072887154
+Timp de rulare: 32.48008751869202 secunde
+
+
+Rezultat : 1.075393268301923
+Timp de rulare: 33.55304312705994 secunde
+
+
+Rezultat : 1.1797887499578792
+Timp de rulare: 34.110767126083374 secunde
+
+
+Rezultat : 1.288553010477699
+Timp de rulare: 33.520068645477295 secunde
+
+
+Rezultat : 1.5032695256613806
+Timp de rulare: 31.711729764938354 secunde
+
+
+Rezultat : 1.2887221971323015
+Timp de rulare: 35.52966046333313 secunde
+
+
+Rezultat : 1.3961795942868775
+Timp de rulare: 34.27844429016113 secunde
+
+
+Rezultat : 1.289815994690798
+Timp de rulare: 35.553359508514404 secunde
+
+
+Rezultat : 1.502986712854181
+Timp de rulare: 32.4750816822052 secunde
+
+
+Rezultat : 1.5036989167965658
+Timp de rulare: 35.57379460334778 secunde
+
+
+Rezultat : 1.2879324943551183
+Timp de rulare: 34.82942485809326 secunde
+
+
+Rezultat : 1.2885310585061234
+Timp de rulare: 35.692474365234375 secunde
+
+
+Rezultat : 1.926860940613551
+Timp de rulare: 34.823296785354614 secunde
+
+
+Rezultat : 0.9703043506924587
+Timp de rulare: 34.747188091278076 secunde
+
+
+Rezultat : 1.2885310585061234
+Timp de rulare: 34.99156069755554 secunde
+
+
+Rezultat : 0.9691071912948246
+Timp de rulare: 33.16390061378479 secunde
+
+
+Rezultat : 1.182244981499025
+Timp de rulare: 33.357006311416626 secunde
+
+
+Rezultat : 0.8610222078023071
+Timp de rulare: 32.534075021743774 secunde
+
+
+Rezultat : 2.0355812982234056
+Timp de rulare: 34.37940812110901 secunde
+
+
+Rezultat : 1.181635441364051
+Timp de rulare: 31.663320064544678 secunde
+
+
+Rezultat : 1.0738403710001876
+Timp de rulare: 35.51943850517273 secunde
+
+
+Rezultat : 1.7136314625877276
+Timp de rulare: 32.57762336730957 secunde
+
+
