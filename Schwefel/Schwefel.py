@@ -1,107 +1,120 @@
 import numpy as np
-from typing import Tuple, List
 import time
+from typing import Tuple, List
 
 class BinaryGA:
-    def __init__(self, bits_per_param: int = 16, 
+    def __init__(self, bits_per_param: int = 16,
                  n_params: int = 30,  # DIMENSIUNI
                  bounds: Tuple[float, float] = (-500, 500)):
         self.bits_per_param = bits_per_param
         self.n_params = n_params
         self.string_length = bits_per_param * n_params
         self.bounds = bounds
-        # Precompute powers of two for decoding
-        self.powers_of_two = 2 ** np.arange(self.bits_per_param)[::-1]
+        # Precalculăm puterile lui doi pentru decodificare
+        self.powers_of_two = 2 ** np.arange(self.bits_per_param - 1, -1, -1)
+        #creeaza un array descrescator pt puterile lui 2 
         self.largest = 2 ** self.bits_per_param - 1
-        
-    def create_bitstring(self) -> np.ndarray:
-        """Generate random bitstring as numpy array."""
-        return np.random.randint(0, 2, self.string_length)
+
+    def create_population(self, pop_size: int) -> np.ndarray:
+        """Generează populația inițială ca un array 2D NumPy."""
+        return np.random.randint(0, 2, (pop_size, self.string_length))
+
+    #ndarray = n dimensiuni array ( de ex 1 -> vector , 2 -> matrice etc)
     
-    def decode(self, bitstring: np.ndarray) -> np.ndarray:
-        """Decode bitstring to real values."""
-        decoded = []
-        for i in range(self.n_params):
-            # Extract substring
-            start = i * self.bits_per_param
-            end = start + self.bits_per_param
-            substring = bitstring[start:end]
-            # Convert to decimal
-            integer = substring.dot(self.powers_of_two)
-            # Scale to bounds
-            value = self.bounds[0] + (integer / self.largest) * (self.bounds[1] - self.bounds[0])
-            decoded.append(value)
-        return np.array(decoded)
-    
-    def schwefel(self, x: np.ndarray) -> float:
-        """Compute Schwefel function."""
-        return 418.9829 * len(x) - np.sum(x * np.sin(np.sqrt(np.abs(x))))
-    
-    def crossover(self, p1: np.ndarray, p2: np.ndarray, r_cross: float) -> Tuple[np.ndarray, np.ndarray]:
-        """Single point crossover."""
-        c1, c2 = p1.copy(), p2.copy()
-        if np.random.random() < r_cross:
-            point = np.random.randint(1, len(p1))
-            c1 = np.concatenate((p1[:point], p2[point:]))
-            c2 = np.concatenate((p2[:point], p1[point:]))
-        return c1, c2
-    
-    def mutation(self, bitstring: np.ndarray, r_mut: float) -> np.ndarray:
-        """Bit flip mutation."""
-        mutation_mask = np.random.rand(len(bitstring)) < r_mut
-        bitstring[mutation_mask] = 1 - bitstring[mutation_mask]
-        return bitstring
-    
-    def selection(self, pop: List[np.ndarray], scores: List[float]) -> np.ndarray:
-        """Tournament selection with tournament size of 3."""
-        selection_ix = np.random.randint(len(pop))
-        for ix in np.random.randint(0, len(pop), 2):
-            if scores[ix] < scores[selection_ix]:
-                selection_ix = ix
-        return pop[selection_ix]
-    
-    def run(self, n_iter: int = 5000, r_cross: float = 0.9, r_mut: float = 1.0/100) -> Tuple[np.ndarray, float]:
-        """Run the genetic algorithm."""
-        # Initial population of 100
-        pop = [self.create_bitstring() for _ in range(100)]
+    def decode(self, bitstrings: np.ndarray) -> np.ndarray:
+        """Decodifică șirurile de biți în valori reale."""
+        # Reshape la (pop_size, n_params, bits_per_param)
+        pop_size = bitstrings.shape[0]
+        bit_array = bitstrings.reshape(pop_size, self.n_params, self.bits_per_param)
+        # Convertim binarul în zecimal
+        integers = bit_array.dot(self.powers_of_two)
+        # Scalăm la limitele [-500, 500]
+        values = self.bounds[0] + (integers / self.largest) * (self.bounds[1] - self.bounds[0])
+        return values  # formă: (pop_size, n_params)
+
+    def schwefel(self, x: np.ndarray) -> np.ndarray:
+        """Calculează funcția Schwefel pentru mai mulți candidați."""
+        return 418.9829 * self.n_params - np.sum(x * np.sin(np.sqrt(np.abs(x))), axis=1)
+
+    def selection(self, pop: np.ndarray, scores: np.ndarray) -> np.ndarray:
+        """Selecție turnir cu dimensiunea turnirului de 3."""
+        pop_size = pop.shape[0]
+        tournament_size = 3
+        # Selectăm aleatoriu candidații pentru turnir
+        candidates_idx = np.random.randint(0, pop_size, size=(pop_size, tournament_size))
+        # Obținem scorurile candidaților
+        candidates_scores = scores[candidates_idx]  # formă (pop_size, tournament_size)
+        # Găsim indicele celui mai bun candidat în fiecare turnir
+        best_candidate_indices = np.argmin(candidates_scores, axis=1)
+        # Obținem indicii indivizilor selectați
+        selected_indices = candidates_idx[np.arange(pop_size), best_candidate_indices]
+        # Returnăm indivizii selectați
+        return pop[selected_indices]
+
+    def crossover(self, parents: np.ndarray, r_cross: float) -> np.ndarray:
+        """Aplică încrucișarea pe un set de părinți pentru a produce copii."""
+        pop_size = parents.shape[0]
+        children = parents.copy()
+        for i in range(0, pop_size - 1, 2):
+            if np.random.rand() < r_cross:
+                crossover_point = np.random.randint(1, self.string_length)
+                children[i, crossover_point:], children[i+1, crossover_point:] = \
+                    children[i+1, crossover_point:], children[i, crossover_point:]
+        return children
+
+    def mutation(self, bitstrings: np.ndarray, r_mut: float) -> np.ndarray:
+        """Mutarea prin flip de bit aplicată unei populații."""
+        mutation_mask = np.random.rand(*bitstrings.shape) < r_mut
+        bitstrings[mutation_mask] = 1 - bitstrings[mutation_mask]
+        return bitstrings
+
+    def run(self, n_iter: int = 50000, r_cross: float = 0.9, r_mut: float = 1.0 / 100) -> Tuple[np.ndarray, float]:
+        """Rulează algoritmul genetic."""
+        # Populația inițială
+        pop_size = 100
+        pop = self.create_population(pop_size)
         best, best_eval = None, float('inf')
-        
+
         for gen in range(n_iter):
-            # Decode and evaluate all candidates
-            decoded = [self.decode(p) for p in pop]
-            scores = [self.schwefel(d) for d in decoded]
-            
-            # Check for new best
-            for i in range(len(scores)):
-                if scores[i] < best_eval:
-                    best, best_eval = pop[i], scores[i]
-                    #print(f'>Gen {gen}: new best = {best_eval}')
-            
-            # Select parents
-            selected = [self.selection(pop, scores) for _ in range(len(pop))]
-            
-            # Create next generation
-            children = []
-            for i in range(0, len(selected), 2):
-                # Get selected parents
-                p1, p2 = selected[i], selected[i+1]
-                # Crossover and mutation
-                c1, c2 = self.crossover(p1, p2, r_cross)
-                c1 = self.mutation(c1, r_mut)
-                c2 = self.mutation(c2, r_mut)
-                # Store for next generation
-                children.extend([c1, c2])
+            # Decodificăm și evaluăm toți candidații
+            decoded = self.decode(pop)  # formă: (pop_size, n_params)
+            scores = self.schwefel(decoded)  # formă: (pop_size,)
+
+            # Verificăm pentru un nou cel mai bun
+            min_idx = np.argmin(scores)
+            if scores[min_idx] < best_eval:
+                best, best_eval = pop[min_idx].copy(), scores[min_idx]
+                #print(f'>Gen {gen}: new best = {best_eval}')
+
+            # Implementăm elitismul: Păstrăm cel mai bun individ
+            elite = pop[min_idx].copy()
+
+            # Selectăm părinții
+            selected = self.selection(pop, scores)
+
+            # Aplicăm încrucișarea
+            children = self.crossover(selected, r_cross)
+
+            # Aplicăm mutația
+            children = self.mutation(children, r_mut)
+
+            # Înlocuim populația cu copiii
             pop = children
-            
+
+            # Aplicăm elitismul: Înlocuim un individ aleatoriu cu elita
+            replace_idx = np.random.randint(pop_size)
+            pop[replace_idx] = elite
+
         return best, best_eval
 
-# Usage example
+# Exemplu de utilizare
 if __name__ == "__main__":
     start_time = time.time()
     ga = BinaryGA()
     best_bitstring, score = ga.run()
-    decoded = ga.decode(best_bitstring)
+    decoded = ga.decode(np.array([best_bitstring]))[0]  # Decodificăm cel mai bun individ
     end_time = time.time()
-    print('Done!')
-    print(f'Best: f({decoded}) = {score}')
-    print(f"Running time : {end_time - start_time} seconds")
+    #print('Gata!')
+    #print(f'Cel mai bun: f({decoded}) = {score}')
+    print(f'Rezultat : {score}')
+    print(f"Timp de rulare: {end_time - start_time} secunde")
