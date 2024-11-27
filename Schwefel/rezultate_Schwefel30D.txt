@@ -1,0 +1,13 @@
+Results:
+Rezultat : 126.38114191584464
+Timp de rulare: 16.154467821121216 secunde
+
+
+Rezultat : 72.33739336598956
+Timp de rulare: 15.505372524261475 secunde
+
+
+Rezultat : 56.03364227375641
+Timp de rulare: 15.667763471603394 secunde
+
+

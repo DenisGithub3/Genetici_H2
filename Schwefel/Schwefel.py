@@ -68,7 +68,7 @@ class BinaryGA:
         bitstrings[mutation_mask] = 1 - bitstrings[mutation_mask]
         return bitstrings
 
-    def run(self, n_iter: int = 50000, r_cross: float = 0.9, r_mut: float = 1.0 / 100) -> Tuple[np.ndarray, float]:
+    def run(self, n_iter: int = 10000, r_cross: float = 0.9, r_mut: float = 1.0 / 100) -> Tuple[np.ndarray, float]:
         """Rulează algoritmul genetic."""
         # Populația inițială
         pop_size = 100
@@ -118,3 +118,4 @@ if __name__ == "__main__":
     #print(f'Cel mai bun: f({decoded}) = {score}')
     print(f'Rezultat : {score}')
     print(f"Timp de rulare: {end_time - start_time} secunde")
+    print("\n")
