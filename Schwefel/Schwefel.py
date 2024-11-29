@@ -4,7 +4,7 @@ from typing import Tuple, List
 
 class BinaryGA:
     def __init__(self, bits_per_param: int = 16,
-                 n_params: int = 5,  # DIMENSIUNI
+                 n_params: int = 30,  # DIMENSIUNI
                  bounds: Tuple[float, float] = (-500, 500)):
         self.bits_per_param = bits_per_param
         self.n_params = n_params
@@ -116,6 +116,7 @@ if __name__ == "__main__":
     end_time = time.time()
     #print('Gata!')
     #print(f'Cel mai bun: f({decoded}) = {score}')
-    print(f'Rezultat : {score}')
-    print(f"Timp de rulare: {end_time - start_time} secunde")
+    print(f'Rezultat : {score:.5f}')
+    running_time = end_time - start_time
+    print(f"Timp de rulare: {running_time:.5f} secunde")
     print("\n")

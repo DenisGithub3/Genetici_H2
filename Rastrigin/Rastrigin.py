@@ -5,7 +5,7 @@ from typing import Tuple , List
 class BinaryGA:
     def __init__(self, bits_per_param: int = 16, 
                  n_params: int = 30,  # DIMENSIUNI 
-                 bounds: Tuple[float, float] = (0, np.pi)):
+                 bounds: Tuple[float, float] = (-5.12, 5.12)):
         self.bits_per_param = bits_per_param
         self.n_params = n_params
         self.string_length = bits_per_param * n_params
@@ -25,18 +25,14 @@ class BinaryGA:
         bit_array = bitstrings.reshape(pop_size, self.n_params, self.bits_per_param)
         # Convert binary to decimal
         integers = bit_array.dot(self.powers_of_two)
-        # Scale to bounds [0, pi]
+        # Scale to bounds [-5.12, 5.12]
         values = self.bounds[0] + (integers / self.largest) * (self.bounds[1] - self.bounds[0])
         return values  # shape: (pop_size, n_params)
     
-    def michalewicz(self, x: np.ndarray, m: int = 10) -> np.ndarray:
-        """Compute Michalewicz function for multiple candidates."""
-        i = np.arange(1, self.n_params + 1)
-        # Reshape i for broadcasting
-        i = i[np.newaxis, :]
-        sin_x = np.sin(x)
-        sin_term = np.sin((x ** 2) * i / np.pi) ** (2 * m)
-        return -np.sum(sin_x * sin_term, axis=1)  # Return array of shape (pop_size,)
+    def rastrigin(self, x: np.ndarray) -> np.ndarray:
+        """Compute Rastrigin function for multiple candidates."""
+        n = self.n_params
+        return 10 * n + np.sum(x**2 - 10 * np.cos(2 * np.pi * x), axis=1)
     
     def selection(self, pop: np.ndarray, scores: np.ndarray) -> np.ndarray:
         """Tournament selection with tournament size of 3."""
@@ -80,7 +76,7 @@ class BinaryGA:
         for gen in range(n_iter):
             # Decode and evaluate all candidates
             decoded = self.decode(pop)  # shape: (pop_size, n_params)
-            scores = self.michalewicz(decoded)  # shape: (pop_size,)
+            scores = self.rastrigin(decoded)  # shape: (pop_size,)
             
             # Check for new best
             min_idx = np.argmin(scores)
@@ -106,7 +102,7 @@ class BinaryGA:
             # Apply elitism: Replace a random individual with the elite
             replace_idx = np.random.randint(pop_size)
             pop[replace_idx] = elite
-        
+            
         return best, best_eval
 
 # Usage example

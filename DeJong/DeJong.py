@@ -1,123 +1,122 @@
 import numpy as np
 import time
-from typing import Tuple , List
+from typing import Tuple, List
 
 class BinaryGA:
-    def __init__(self, bits_per_param: int = 16, 
-                 n_params: int = 30,  # DIMENSIUNI 
-                 bounds: Tuple[float, float] = (0, np.pi)):
+    def __init__(self, bits_per_param: int = 16,
+                 n_params: int = 30,  # DIMENSIUNI
+                 bounds: Tuple[float, float] = (-5.12, 5.12)):
         self.bits_per_param = bits_per_param
         self.n_params = n_params
         self.string_length = bits_per_param * n_params
         self.bounds = bounds
-        # Precompute powers of two for decoding
+        # Precalculăm puterile lui doi pentru decodificare
         self.powers_of_two = 2 ** np.arange(self.bits_per_param - 1, -1, -1)
+        #creeaza un array descrescator pt puterile lui 2 
         self.largest = 2 ** self.bits_per_param - 1
-        
+
     def create_population(self, pop_size: int) -> np.ndarray:
-        """Generate initial population as a 2D NumPy array."""
+        """Generează populația inițială ca un array 2D NumPy."""
         return np.random.randint(0, 2, (pop_size, self.string_length))
+
+    #ndarray = n dimensiuni array ( de ex 1 -> vector , 2 -> matrice etc)
     
     def decode(self, bitstrings: np.ndarray) -> np.ndarray:
-        """Decode bitstrings to real values."""
-        # Reshape bitstrings to (pop_size, n_params, bits_per_param)
+        """Decodifică șirurile de biți în valori reale."""
+        # Reshape la (pop_size, n_params, bits_per_param)
         pop_size = bitstrings.shape[0]
         bit_array = bitstrings.reshape(pop_size, self.n_params, self.bits_per_param)
-        # Convert binary to decimal
+        # Convertim binarul în zecimal
         integers = bit_array.dot(self.powers_of_two)
-        # Scale to bounds [0, pi]
+        # Scalăm la limitele [-500, 500]
         values = self.bounds[0] + (integers / self.largest) * (self.bounds[1] - self.bounds[0])
-        return values  # shape: (pop_size, n_params)
-    
-    def michalewicz(self, x: np.ndarray, m: int = 10) -> np.ndarray:
-        """Compute Michalewicz function for multiple candidates."""
-        i = np.arange(1, self.n_params + 1)
-        # Reshape i for broadcasting
-        i = i[np.newaxis, :]
-        sin_x = np.sin(x)
-        sin_term = np.sin((x ** 2) * i / np.pi) ** (2 * m)
-        return -np.sum(sin_x * sin_term, axis=1)  # Return array of shape (pop_size,)
-    
+        return values  # formă: (pop_size, n_params)
+
+    def Dejong(self, x: np.ndarray) -> np.ndarray:
+        """Calculează funcția Schwefel pentru mai mulți candidați."""
+        return np.sum(x**2, axis=1)
+
     def selection(self, pop: np.ndarray, scores: np.ndarray) -> np.ndarray:
-        """Tournament selection with tournament size of 3."""
+        """Selecție turnir cu dimensiunea turnirului de 3."""
         pop_size = pop.shape[0]
         tournament_size = 3
-        # Randomly select tournament candidates
+        # Selectăm aleatoriu candidații pentru turnir
         candidates_idx = np.random.randint(0, pop_size, size=(pop_size, tournament_size))
-        # Get scores of candidates
-        candidates_scores = scores[candidates_idx]  # shape (pop_size, tournament_size)
-        # Find the index of the best candidate in each tournament
+        # Obținem scorurile candidaților
+        candidates_scores = scores[candidates_idx]  # formă (pop_size, tournament_size)
+        # Găsim indicele celui mai bun candidat în fiecare turnir
         best_candidate_indices = np.argmin(candidates_scores, axis=1)
-        # Get indices of the selected individuals
+        # Obținem indicii indivizilor selectați
         selected_indices = candidates_idx[np.arange(pop_size), best_candidate_indices]
-        # Return selected individuals
+        # Returnăm indivizii selectați
         return pop[selected_indices]
-    
+ 
     def crossover(self, parents: np.ndarray, r_cross: float) -> np.ndarray:
-        """Apply crossover on a set of parents to produce children."""
+        """Aplică încrucișarea pe un set de părinți pentru a produce copii."""
         pop_size = parents.shape[0]
         children = parents.copy()
-        for i in range(0, pop_size, 2):
+        for i in range(0, pop_size - 1, 2):
             if np.random.rand() < r_cross:
                 crossover_point = np.random.randint(1, self.string_length)
                 children[i, crossover_point:], children[i+1, crossover_point:] = \
                     children[i+1, crossover_point:], children[i, crossover_point:]
         return children
-    
+
     def mutation(self, bitstrings: np.ndarray, r_mut: float) -> np.ndarray:
-        """Bit flip mutation applied to a population."""
+        """Mutarea prin flip de bit aplicată unei populații."""
         mutation_mask = np.random.rand(*bitstrings.shape) < r_mut
         bitstrings[mutation_mask] = 1 - bitstrings[mutation_mask]
         return bitstrings
-    
-    def run(self, n_iter: int = 50000, r_cross: float = 0.9, r_mut: float = 1.0/100) -> Tuple[np.ndarray, float]:
-        """Run the genetic algorithm."""
-        # Initial population
+
+    def run(self, n_iter: int = 50000, r_cross: float = 0.9, r_mut: float = 1.0 / 100) -> Tuple[np.ndarray, float]:
+        """Rulează algoritmul genetic."""
+        # Populația inițială
         pop_size = 100
         pop = self.create_population(pop_size)
         best, best_eval = None, float('inf')
-        
+
         for gen in range(n_iter):
-            # Decode and evaluate all candidates
-            decoded = self.decode(pop)  # shape: (pop_size, n_params)
-            scores = self.michalewicz(decoded)  # shape: (pop_size,)
-            
-            # Check for new best
+            # Decodificăm și evaluăm toți candidații
+            decoded = self.decode(pop)  # formă: (pop_size, n_params)
+            scores = self.Dejong(decoded)  # formă: (pop_size,)
+
+            # Verificăm pentru un nou cel mai bun
             min_idx = np.argmin(scores)
             if scores[min_idx] < best_eval:
                 best, best_eval = pop[min_idx].copy(), scores[min_idx]
                 #print(f'>Gen {gen}: new best = {best_eval}')
-            
-            # Implement elitism: Keep the best individual
+
+            # Implementăm elitismul: Păstrăm cel mai bun individ
             elite = pop[min_idx].copy()
-            
-            # Select parents
+
+            # Selectăm părinții
             selected = self.selection(pop, scores)
-            
-            # Apply crossover
+
+            # Aplicăm încrucișarea
             children = self.crossover(selected, r_cross)
-            
-            # Apply mutation
+
+            # Aplicăm mutația
             children = self.mutation(children, r_mut)
-            
-            # Replace population with children
+
+            # Înlocuim populația cu copiii
             pop = children
-            
-            # Apply elitism: Replace a random individual with the elite
+
+            # Aplicăm elitismul: Înlocuim un individ aleatoriu cu elita
             replace_idx = np.random.randint(pop_size)
             pop[replace_idx] = elite
-        
+
         return best, best_eval
 
-# Usage example
+# Exemplu de utilizare
 if __name__ == "__main__":
     start_time = time.time()
     ga = BinaryGA()
     best_bitstring, score = ga.run()
-    decoded = ga.decode(np.array([best_bitstring]))[0]  # Decode the best individual
+    decoded = ga.decode(np.array([best_bitstring]))[0]  # Decodificăm cel mai bun individ
     end_time = time.time()
-    #print('Done!')
+    #print('Gata!')
+    #print(f'Cel mai bun: f({decoded}) = {score}')
     print(f'Rezultat : {score:.5f}')
     running_time = end_time - start_time
-    print(f"Running time : {running_time:.5f} seconds")
-    print(f"\n")
+    print(f"Timp de rulare: {running_time:.5f} secunde")
+    print("\n")

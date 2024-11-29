@@ -1,0 +1,121 @@
+Results:
+Rezultat : 0.00001
+Running time : 17.61494 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.33771 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.31691 seconds
+
+
+Rezultat : 0.00001
+Running time : 17.97642 seconds
+
+
+Rezultat : 0.00001
+Running time : 17.75723 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.33337 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.08710 seconds
+
+
+Rezultat : 0.00001
+Running time : 17.90259 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.20382 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.10522 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.90210 seconds
+
+
+Rezultat : 0.00001
+Running time : 17.87194 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.31348 seconds
+
+
+Rezultat : 0.00001
+Running time : 17.81755 seconds
+
+
+Rezultat : 0.00001
+Running time : 17.84116 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.27090 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.39313 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.17597 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.70041 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.49948 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.67266 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.85006 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.64440 seconds
+
+
+Rezultat : 0.00001
+Running time : 19.18042 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.63530 seconds
+
+
+Rezultat : 0.00001
+Running time : 19.05837 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.60713 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.08985 seconds
+
+
+Rezultat : 0.00001
+Running time : 18.34913 seconds
+
+
+Rezultat : 0.00001
+Running time : 17.99881 seconds
+
+

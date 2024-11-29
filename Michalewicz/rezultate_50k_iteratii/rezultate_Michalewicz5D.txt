@@ -1,0 +1,121 @@
+Results:
+Rezultat : -4.68766
+Running time : 15.95039 seconds
+
+
+Rezultat : -4.68323
+Running time : 17.52944 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.83514 seconds
+
+
+Rezultat : -4.68323
+Running time : 16.04421 seconds
+
+
+Rezultat : -4.53706
+Running time : 15.61681 seconds
+
+
+Rezultat : -4.68590
+Running time : 15.60410 seconds
+
+
+Rezultat : -4.53766
+Running time : 15.34234 seconds
+
+
+Rezultat : -4.53766
+Running time : 15.90162 seconds
+
+
+Rezultat : -4.53766
+Running time : 15.89802 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.66176 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.42435 seconds
+
+
+Rezultat : -4.68148
+Running time : 15.40728 seconds
+
+
+Rezultat : -4.53766
+Running time : 15.34345 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.37702 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.54691 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.41974 seconds
+
+
+Rezultat : -4.53323
+Running time : 15.69857 seconds
+
+
+Rezultat : -4.53766
+Running time : 15.53141 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.56966 seconds
+
+
+Rezultat : -4.53323
+Running time : 16.80879 seconds
+
+
+Rezultat : -4.68148
+Running time : 15.53181 seconds
+
+
+Rezultat : -4.68148
+Running time : 15.57823 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.46469 seconds
+
+
+Rezultat : -4.68590
+Running time : 15.61096 seconds
+
+
+Rezultat : -4.68766
+Running time : 15.86078 seconds
+
+
+Rezultat : -4.68323
+Running time : 16.30832 seconds
+
+
+Rezultat : -4.68263
+Running time : 15.39531 seconds
+
+
+Rezultat : -4.68323
+Running time : 15.93084 seconds
+
+
+Rezultat : -4.53323
+Running time : 15.90924 seconds
+
+
+Rezultat : -4.68323
+Running time : 15.57949 seconds
+
+

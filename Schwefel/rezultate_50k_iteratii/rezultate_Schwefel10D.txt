@@ -1,121 +1,121 @@
 Results:
-Rezultat : 0.5359739992518371
-Timp de rulare: 16.908049821853638 secunde
+Rezultat : 0.32088
+Timp de rulare: 17.90320 secunde
 
 
-Rezultat : 0.4290674061248865
-Timp de rulare: 16.94675850868225 secunde
+Rezultat : 0.42845
+Timp de rulare: 17.74413 secunde
 
 
-Rezultat : 0.5353315311594997
-Timp de rulare: 16.914554595947266 secunde
+Rezultat : 0.64160
+Timp de rulare: 18.06089 secunde
 
 
-Rezultat : 0.5347000390520407
-Timp de rulare: 16.815383672714233 secunde
+Rezultat : 0.21463
+Timp de rulare: 17.66686 secunde
 
 
-Rezultat : 0.21525421987098525
-Timp de rulare: 16.82405662536621 secunde
+Rezultat : 0.42842
+Timp de rulare: 17.83303 secunde
 
 
-Rezultat : 0.4284249380325491
-Timp de rulare: 16.875756978988647 secunde
+Rezultat : 0.32089
+Timp de rulare: 17.80466 secunde
 
 
-Rezultat : 0.2146337037502235
-Timp de rulare: 17.11177635192871 secunde
+Rezultat : 0.21461
+Timp de rulare: 17.67351 secunde
 
 
-Rezultat : 0.5353315311594997
-Timp de rulare: 16.948479413986206 secunde
+Rezultat : 0.32153
+Timp de rulare: 17.64843 secunde
 
 
-Rezultat : 0.32087587681235163
-Timp de rulare: 16.907798051834106 secunde
+Rezultat : 0.42907
+Timp de rulare: 17.62357 secunde
 
 
-Rezultat : 0.6422381242864503
-Timp de rulare: 16.837514877319336 secunde
+Rezultat : 0.10707
+Timp de rulare: 17.89042 secunde
 
 
-Rezultat : 0.32087587681235163
-Timp de rulare: 16.73858642578125 secunde
+Rezultat : 0.21591
+Timp de rulare: 17.83655 secunde
 
 
-Rezultat : 0.42778246993930225
-Timp de rulare: 16.888496160507202 secunde
+Rezultat : 0.53469
+Timp de rulare: 17.66104 secunde
 
 
-Rezultat : 0.32089782878392725
-Timp de rulare: 16.790396690368652 secunde
+Rezultat : 0.64288
+Timp de rulare: 17.30513 secunde
 
 
-Rezultat : 0.2146337037502235
-Timp de rulare: 17.070712089538574 secunde
+Rezultat : 0.53597
+Timp de rulare: 17.22991 secunde
 
 
-Rezultat : 0.3215293208913863
-Timp de rulare: 17.68252158164978 secunde
+Rezultat : 0.53598
+Timp de rulare: 17.30182 secunde
 
 
-Rezultat : 0.5353315311594997
-Timp de rulare: 17.155102968215942 secunde
+Rezultat : 0.53469
+Timp de rulare: 17.81700 secunde
 
 
-Rezultat : 0.42780442191087786
-Timp de rulare: 17.048890113830566 secunde
+Rezultat : 0.53469
+Timp de rulare: 17.96026 secunde
 
 
-Rezultat : 0.2146117517777384
-Timp de rulare: 16.823856115341187 secunde
+Rezultat : 0.42778
+Timp de rulare: 17.71396 secunde
 
 
-Rezultat : 0.4284359140174274
-Timp de rulare: 16.726361751556396 secunde
+Rezultat : 0.42779
+Timp de rulare: 17.83499 secunde
 
 
-Rezultat : 0.5346890630662529
-Timp de rulare: 16.850611448287964 secunde
+Rezultat : 0.10771
+Timp de rulare: 17.78126 secunde
 
 
-Rezultat : 0.4284359140183369
-Timp de rulare: 17.079580783843994 secunde
+Rezultat : 0.85605
+Timp de rulare: 17.61950 secunde
 
 
-Rezultat : 0.214633703749314
-Timp de rulare: 17.066839456558228 secunde
+Rezultat : 0.42842
+Timp de rulare: 17.72627 secunde
 
 
-Rezultat : 0.5346890630662529
-Timp de rulare: 16.817017555236816 secunde
+Rezultat : 0.53534
+Timp de rulare: 17.60288 secunde
 
 
-Rezultat : 0.4290783821106743
-Timp de rulare: 16.76820731163025 secunde
+Rezultat : 0.32088
+Timp de rulare: 17.76618 secunde
 
 
-Rezultat : 0.2146117517777384
-Timp de rulare: 16.808680534362793 secunde
+Rezultat : 0.64160
+Timp de rulare: 17.67900 secunde
 
 
-Rezultat : 0.32089782878392725
-Timp de rulare: 16.85248374938965 secunde
+Rezultat : 0.21398
+Timp de rulare: 17.73030 secunde
 
 
-Rezultat : 0.42780442191087786
-Timp de rulare: 16.898709774017334 secunde
+Rezultat : 0.53533
+Timp de rulare: 17.71632 secunde
 
 
-Rezultat : 0.8554088424471047
-Timp de rulare: 17.605417728424072 secunde
+Rezultat : 0.53470
+Timp de rulare: 17.85670 secunde
 
 
-Rezultat : 0.32087587681235163
-Timp de rulare: 17.102969646453857 secunde
+Rezultat : 0.42907
+Timp de rulare: 17.59688 secunde
 
 
-Rezultat : 0.7491447174134009
-Timp de rulare: 17.501530647277832 secunde
+Rezultat : 0.42779
+Timp de rulare: 17.70844 secunde
 
 
