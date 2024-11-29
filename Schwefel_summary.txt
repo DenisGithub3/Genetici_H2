@@ -1,0 +1,32 @@
+5 Dimensions :
+Lowest Result: 0.00072
+Highest Result: 0.53461
+Average Result: 0.25697
+
+Running Time Summary:
+Lowest Running Time: 14.07403 seconds
+Highest Running Time: 14.75029 seconds
+Average Running Time: 14.36029 seconds
+
+
+10 Dimensions :
+Lowest Result: 0.10707
+Highest Result: 0.85605
+Average Result: 0.42828
+
+Running Time Summary:
+Lowest Running Time: 17.22991 seconds
+Highest Running Time: 18.06089 seconds
+Average Running Time: 17.70977 seconds
+
+
+
+30 Dimensions :
+Lowest Result: 0.75277
+Highest Result: 35.37018
+Average Result: 2.47170
+
+Running Time Summary:
+Lowest Running Time: 32.63601 seconds
+Highest Running Time: 36.33963 seconds
+Average Running Time: 34.74615 seconds

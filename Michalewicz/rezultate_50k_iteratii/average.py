@@ -1,7 +1,7 @@
 import re
 
 # Define file path
-file_path = "/mnt/data/rezultate_Schwefel5D.txt"
+file_path = "rezultate_Michalewicz30D.txt"
 
 # Initialize lists to store the values
 results = []
@@ -12,11 +12,13 @@ with open(file_path, 'r') as file:
     for line in file:
         if "Rezultat" in line:
             # Extract the result value
-            result = float(re.search(r"Rezultat\s*:\s*([\d.]+)", line).group(1))
+            result = float(re.search(r"Rezultat\s*:\s*(-?[\d.]+)", line).group(1))
             results.append(result)
-        elif "Timp de rulare" in line:
+        #elif "Timp de rulare" in line:
+        elif "Running time" in line:
             # Extract the running time value
-            time = float(re.search(r"Timp de rulare:\s*([\d.]+)", line).group(1))
+            #time = float(re.search(r"Timp de rulare:\s*([\d.]+)", line).group(1))
+            time = float(re.search(r"Running time\s*:\s*([\d.]+)", line).group(1))
             running_times.append(time)
 
 # Calculate lowest, highest, and average values
@@ -30,8 +32,8 @@ average_time = sum(running_times) / len(running_times)
 
 # Display the results
 print("Results Summary:")
-print(f"Lowest Result: {lowest_result}")
-print(f"Highest Result: {highest_result}")
+print(f"Lowest Result: {lowest_result:.5f}")
+print(f"Highest Result: {highest_result:.5f}")
 print(f"Average Result: {average_result:.5f}")
 
 print("\nRunning Time Summary:")

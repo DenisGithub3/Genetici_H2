@@ -83,7 +83,7 @@ Rezultat : 0.00001
 Running time : 14.52159 seconds
 
 
-Rezultat : 2.47328
+Rezultat : 0.00001
 Running time : 14.81568 seconds
 
 
