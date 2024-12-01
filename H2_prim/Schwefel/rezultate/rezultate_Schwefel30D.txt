@@ -1,0 +1,121 @@
+Results:
+Rezultat : 0.00047
+Timp de rulare: 45.86817 secunde
+
+
+Rezultat : 0.00052
+Timp de rulare: 45.28674 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 44.58698 secunde
+
+
+Rezultat : 0.00068
+Timp de rulare: 46.27081 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.50323 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.15288 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 44.40447 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 44.34559 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 46.93991 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.84821 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 44.87811 secunde
+
+
+Rezultat : 0.00048
+Timp de rulare: 45.49976 secunde
+
+
+Rezultat : 0.00052
+Timp de rulare: 43.22593 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 49.62735 secunde
+
+
+Rezultat : 0.00048
+Timp de rulare: 47.84820 secunde
+
+
+Rezultat : 0.00052
+Timp de rulare: 46.37625 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.78601 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 46.34110 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.51188 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 44.47009 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.47333 secunde
+
+
+Rezultat : 0.00048
+Timp de rulare: 47.13001 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.79194 secunde
+
+
+Rezultat : 0.00048
+Timp de rulare: 47.53264 secunde
+
+
+Rezultat : 0.00049
+Timp de rulare: 45.75946 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.19828 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 45.61441 secunde
+
+
+Rezultat : 0.00048
+Timp de rulare: 46.52676 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 48.48736 secunde
+
+
+Rezultat : 0.00047
+Timp de rulare: 47.76000 secunde
+
+

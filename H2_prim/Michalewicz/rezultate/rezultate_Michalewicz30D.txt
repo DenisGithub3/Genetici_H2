@@ -1,0 +1,9 @@
+Results:
+Rezultat : -25.68331
+Timp de rulare: 51.37969 secunde
+
+
+Rezultat : -26.07749
+Timp de rulare: 52.76895 secunde
+
+
